@@ -1,5 +1,5 @@
-IMAGE_NAME = "base-os-k8s"
-NODE_NUM = 1
+IMAGE_NAME = "base-mysql"
+NODE_NUM = 4
 MASTERS_CPU = 1
 MASTERS_MEM = 4048
 
