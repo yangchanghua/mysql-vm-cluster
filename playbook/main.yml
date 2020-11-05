@@ -6,3 +6,37 @@
         name: mysqld
         state: started
 
+    - name: configure file of mysql for root
+      copy:
+        src: my.cnf
+        dest: /root/.my.cnf
+        remote_src: no
+        mode: 0400
+        owner: root
+        group: root
+        force: no
+
+    - name: configure file of mysql for vagrant
+      copy:
+        src: my.cnf
+        dest: /home/vagrant/.my.cnf
+        remote_src: no
+        mode: 0400
+        owner: vagrant
+        group: vagrant
+        force: no
+
+    - name: make sure login with password is on
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        remote_src: yes
+        line: "PasswordAuthentication yes"
+        regexp: "PasswordAuthentication no"
+        state: present
+
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
+
+

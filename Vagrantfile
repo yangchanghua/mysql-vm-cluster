@@ -4,7 +4,7 @@ MASTERS_CPU = 1
 MASTERS_MEM = 4048
 
 
-IP_BASE = "IP_OF_MYSQL"
+IP_BASE = "192.168.80."
 VM_NAME = "mysql-server"
 
 
