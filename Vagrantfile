@@ -25,7 +25,8 @@ Vagrant.configure("2") do |config|
             node.vm.provision "ansible" do |ansible|
                 ansible.playbook = "playbook/main.yml"
                 ansible.extra_vars = {
-                    node_ip:  "#{IP_BASE}#{i+10}"
+                    node_ip:  "#{IP_BASE}#{i+10}",
+                    node_number: "#{i}"
                 }
             end
         end

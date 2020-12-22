@@ -1,0 +1,6 @@
+#!/usr/bin/expect -f
+set timeout 5
+spawn mysql -ufm -h192.168.80.11 -p
+expect "Enter password:"
+send -- "Abcd!1234\r" 
+interact

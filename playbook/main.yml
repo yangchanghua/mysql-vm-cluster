@@ -1,6 +1,29 @@
 - hosts: mysql-server*
   become: yes
   tasks:
+    - name: copy cert files
+      copy:
+        src: certs
+        dest: /root/
+#
+#    - name: configure certs
+#      lineinfile:
+#        path: /etc/my.cnf
+#        line: ssl_ca=/root/certs/ca.cert.pem
+#        insertafter: '[mysqld]'
+#
+#    - name: configure server cert
+#      lineinfile:
+#        path: /etc/my.cnf
+#        line: ssl_cert=/root/certs/server-{{node_number}}.crt
+#        insertafter: 'ssl_ca.*'
+#
+#    - name: configure server key
+#      lineinfile:
+#        path: /etc/my.cnf
+#        line: ssl_key=/root/certs/server-{{node_number}}.key
+#        insertafter: 'ssl_cert.*'
+
     - name: make sure mysql server is started
       service:
         name: mysqld

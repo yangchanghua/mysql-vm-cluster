@@ -1,0 +1,9 @@
+#!/usr/bin/expect -f 
+set timeout 5
+for {set i 11} {$i<15} {incr i} {
+    set ip "192.168.80.$i"
+    spawn mysql -uroot -h$ip -p
+    expect "Enter password:"
+    send -- "Abcd!1234\r" 
+    interact
+}
